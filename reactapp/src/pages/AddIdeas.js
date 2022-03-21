@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 import axios from 'axios';
+import $ from 'jquery';
 
 
 class AddIdeas extends Component {
@@ -17,7 +18,6 @@ class AddIdeas extends Component {
         });
     }
 
-
     savesIdea = async (e) => {
         e.preventDefault();
 
@@ -29,6 +29,25 @@ class AddIdeas extends Component {
                 content: ''
             });
 
+            var radius = 100; // adjust to move out items in and out 
+            var fields = $('.item'),
+                container = $('#container'),
+                width = container.width(),
+                height = container.height();
+            var angle = 0,
+                step = (2 * Math.PI) / fields.length;
+            fields.each(function () {
+                var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+                var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+                if (window.console) {
+                    console.log($(this).text(), x, y);
+                }
+                $(this).css({
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                angle += step;
+            });
 
         }
     }
@@ -36,19 +55,19 @@ class AddIdeas extends Component {
 
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <h4>Add Ideas</h4>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add an Idea</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Add an Idea</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <form onSubmit={this.savesIdea} >
                                     <div className="form-group mb-3">
                                         <label>Idea Title</label>
@@ -69,42 +88,12 @@ class AddIdeas extends Component {
                         </div>
                     </div>
                 </div>
-                <div class='selector'>
-                    <ul>
-                        <li>
-                            <input id='1' type='checkbox' />
-                            <label for='1'>Option 1</label>
-                        </li>
-                        <li>
-                            <input id='2' type='checkbox' />
-                            <label for='2'>Option 2</label>
-                        </li>
-                        <li>
-                            <input id='3' type='checkbox' />
-                            <label for='3'>Option 3</label>
-                        </li>
-                        <li>
-                            <input id='4' type='checkbox' />
-                            <label for='4'>Option 4</label>
-                        </li>
-                        <li>
-                            <input id='5' type='checkbox' />
-                            <label for='5'>Option 5</label>
-                        </li>
-                        <li>
-                            <input id='6' type='checkbox' />
-                            <label for='6'>Option 6</label>
-                        </li>
-                        <li>
-                            <input id='7' type='checkbox' />
-                            <label for='7'>Option 7</label>
-                        </li>
-                        <li>
-                            <input id='8' type='checkbox' />
-                            <label for='8'>Option 8</label>
-                        </li>
-                    </ul>
-                    <button class="roundCenter" type="button" data-toggle="modal" data-target="#exampleModal">Add an idea</button>
+
+                <div className="containerCircles">
+                <div className='selector'>
+                    <div className="item">test</div>
+                    <button className="roundCenter" type="button" data-toggle="modal" data-target="#exampleModal">Add an idea</button>
+                </div>
                 </div>
             </div>
         );
