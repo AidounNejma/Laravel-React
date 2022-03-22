@@ -58,23 +58,16 @@ class AddIdeas extends Component {
         $(".selector").append(circle);
     }
 
-
-
-
-
-
-
-
     render() {
         
         return (
             <div className="container" >
-                <h4>Add Ideas</h4>
+                <h4>Ajouter une idée</h4>
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Add an Idea</h5>
+                                <h5 className="modal-title" id="exampleModalLabel">Ajouter une idée</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -82,18 +75,18 @@ class AddIdeas extends Component {
                             <div className="modal-body">
                                 <form onSubmit={this.savesIdea} >
                                     <div className="form-group mb-3">
-                                        <label>Idea Title</label>
+                                        <label>Titre</label>
                                         <input type="text" name="title" onChange={this.handleInput} value={this.state.title} className="form-control" />
                                         <span className="text-danger"></span>
                                     </div>
                                     <div className="form-group mb-3">
-                                        <label>Idea Content</label>
+                                        <label>Contenu</label>
                                         <textarea type="text" name="content" onChange={this.handleInput} value={this.state.content} className="form-control"></textarea>
                                         <span className="text-danger"></span>
                                     </div>
 
                                     <div className="form-group mb-3">
-                                        <button type="submit" className="btn btn-primary">Add Idea</button>
+                                        <button type="submit" className="btn btn-primary">Ajouter</button>
                                     </div>
                                 </form>
                             </div>
@@ -103,7 +96,7 @@ class AddIdeas extends Component {
 
                 <div className="containerCircles">
                 <div className='selector'>
-                    <button className="roundCenter" type="button" data-toggle="modal" data-target="#exampleModal">Add an idea</button>
+                    <button className="roundCenter" type="button" data-toggle="modal" data-target="#exampleModal">Ajouter une idée</button>
                 </div>
                 </div>
             </div>

@@ -52,7 +52,7 @@ class Ideas extends Component {
 
         if (this.state.loading) {
 
-            ideas_HTML_CARDS = <h1>Loading...</h1>
+            ideas_HTML_CARDS = <h1 className='text-center text-white'>Chargement...</h1>
         }
         else {
             ideas_HTML_CARDS =
@@ -63,7 +63,7 @@ class Ideas extends Component {
                                 <h5 className="card-title">{item.title}</h5>
                                 <h6 className="card-subtitle mb-2 text-muted">{item.user_id}</h6>
                                 <p className="card-text">{item.content}</p>
-                                <button className="btn btn-dark" type="button" data-toggle="modal" data-target={"#exampleModalCenter" + item.id}>See Idea</button>
+                                <button className="btn btn-dark" type="button" data-toggle="modal" data-target={"#exampleModalCenter" + item.id}>Voir plus</button>
                             </div>
                         </div>
 

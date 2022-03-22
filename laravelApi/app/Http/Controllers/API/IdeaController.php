@@ -48,9 +48,7 @@ class IdeaController extends Controller
         $user = Auth::id();
 
         $vote = new Votes();
-      /*   $vote->value = 1;
-        $vote->user_id = 1;
-        $vote->idea_id = $id; */
+
         DB::table('votes')->insert([
             'value' => 1,
             'user_id' => 1,
@@ -67,10 +65,7 @@ class IdeaController extends Controller
         $user = Auth::id();
 
         $vote = new Votes();
-      /*   $vote->value = 0;
-        $vote->user_id = 1;
-        $vote->idea_id = $id; */
-        
+
         DB::table('votes')->insert([
             'value' => 0,
             'user_id' => 1,
