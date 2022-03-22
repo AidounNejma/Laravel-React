@@ -13,7 +13,7 @@ function MyNav() {
                     <Nav className=" float-right">
                         <Nav.Link href="/">Accueil</Nav.Link>
                         <Nav.Link href="add-ideas">Ajouter une idée</Nav.Link>
-                        <Nav.Link href="#pricing">Connexion</Nav.Link>
+                        <Nav.Link href="#login">Connexion</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

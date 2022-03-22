@@ -65,28 +65,28 @@ class AddIdeas extends Component {
                 <h4>Ajouter une idée</h4>
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
+                        <div className="modal-content bg-dark">
+                            <div className="modal-header text-white">
                                 <h5 className="modal-title" id="exampleModalLabel">Ajouter une idée</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span className="text-white" aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={this.savesIdea} >
                                     <div className="form-group mb-3">
-                                        <label>Titre</label>
+                                        <label className="text-white">Titre</label>
                                         <input type="text" name="title" onChange={this.handleInput} value={this.state.title} className="form-control" />
                                         <span className="text-danger"></span>
                                     </div>
                                     <div className="form-group mb-3">
-                                        <label>Contenu</label>
+                                        <label className="text-white">Contenu</label>
                                         <textarea type="text" name="content" onChange={this.handleInput} value={this.state.content} className="form-control"></textarea>
                                         <span className="text-danger"></span>
                                     </div>
 
                                     <div className="form-group mb-3">
-                                        <button type="submit" className="btn btn-primary">Ajouter</button>
+                                        <button type="submit" className="btn btn-light">Ajouter</button>
                                     </div>
                                 </form>
                             </div>
