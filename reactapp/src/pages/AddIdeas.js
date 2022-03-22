@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-
 import axios from 'axios';
 import $ from 'jquery';
 
@@ -9,8 +7,10 @@ class AddIdeas extends Component {
 
     state = {
         title: '',
-        content: ''
+        content: '',
     }
+
+    planetCount = 0;
 
     handleInput = (e) => {
         this.setState({
@@ -34,27 +34,27 @@ class AddIdeas extends Component {
         }
 
         $(circle).css({
-            left: getCircleX(3.14, 225) + 'px',
-            top: getCircleY(3.14, 225) + 'px'
+            left: getCircleX(3.14 + (this.planetCount * 0.7), 250) + 'px',
+            top: getCircleY(3.14 + (this.planetCount * 0.7), 250) + 'px'
         });
 
+        this.planetCount++;
+
         if (res.data.status === 200) {
-            console.log(res.data);
+            //console.log(res.data);
             
             this.setState({
                 title: '',
                 content: ''
             });
 
-            
-        
-
+            /* Creation d'un variable pour stocker le titre + ajout dans la div du cercle */
             const myTitle = $('<h5></h5>');
             myTitle.html(res.data.title);
             circle.append(myTitle);
             
         }
-
+        /* Ajout du cercle dans notre orbite */
         $(".selector").append(circle);
     }
 
@@ -66,6 +66,7 @@ class AddIdeas extends Component {
 
 
     render() {
+        
         return (
             <div className="container" >
                 <h4>Add Ideas</h4>

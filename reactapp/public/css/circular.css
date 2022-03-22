@@ -1,11 +1,11 @@
 .selector {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 11rem;
-  height: 11rem;
-  margin-top: -5rem;
-  margin-left: -5rem;
+    width: 11rem;
+    height: 11rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
 }
 
 .selector, .selector .roundCenter {
@@ -15,9 +15,8 @@
 
 .selector .roundCenter {
   position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
+  width: 150px;
+  height: 150px;
   background: #428bca;
   border-radius: 50%;
   border: 0;
@@ -40,22 +39,24 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 50vh;
-  height: 50vh;
+  width: 600px;
+  height: 600px;
   margin: -25vh;
-  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #000; */
   border-radius: 50%;
   /* animation: spin 10s linear infinite; */
 }
 .item {
-  width: 15vh;
-  height: 15vh;
+  width: 150px;
+  height: 150px;
   line-height: 30px;
   text-align: center;
   border-radius: 50%;
   position: absolute;
   background: #f00;
-  left: 152%;
   display: flex;
   justify-content: center;
   align-items: center;
