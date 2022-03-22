@@ -23,7 +23,9 @@ class IdeaController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Idea Added Successfully',
+            'title' => $idea->title,
+            'content' => $idea->content,
+            'id' => $idea->id
         ]);
     }
 }

@@ -22,42 +22,53 @@ class AddIdeas extends Component {
         e.preventDefault();
 
         const res = await axios.post('http://127.0.0.1:8000/api/add-idea', this.state);
+        
+        const circle = $('<div class="item"></div>')
+        
+        function getCircleY (radians, radius) {
+            return Math.sin(radians) * radius;
+        }
+        
+        function getCircleX (radians, radius) {
+            return Math.cos(radians) * radius;
+        }
+
+        $(circle).css({
+            left: getCircleX(3.14, 225) + 'px',
+            top: getCircleY(3.14, 225) + 'px'
+        });
+
         if (res.data.status === 200) {
-            console.log(res.data.message);
+            console.log(res.data);
+            
             this.setState({
                 title: '',
                 content: ''
             });
 
-            var radius = 100; // adjust to move out items in and out 
-            var fields = $('.item'),
-                container = $('#container'),
-                width = container.width(),
-                height = container.height();
-            var angle = 0,
-                step = (2 * Math.PI) / fields.length;
-            fields.each(function () {
-                var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
-                var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
-                if (window.console) {
-                    console.log($(this).text(), x, y);
-                }
-                $(this).css({
-                    left: x + 'px',
-                    top: y + 'px'
-                });
-                angle += step;
-            });
+            
+        
 
+            const myTitle = $('<h5></h5>');
+            myTitle.html(res.data.title);
+            circle.append(myTitle);
+            
         }
+
+        $(".selector").append(circle);
     }
+
+
+
+
+
+
 
 
     render() {
         return (
-            <div className="container">
+            <div className="container" >
                 <h4>Add Ideas</h4>
-
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
@@ -91,7 +102,6 @@ class AddIdeas extends Component {
 
                 <div className="containerCircles">
                 <div className='selector'>
-                    <div className="item">test</div>
                     <button className="roundCenter" type="button" data-toggle="modal" data-target="#exampleModal">Add an idea</button>
                 </div>
                 </div>

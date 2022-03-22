@@ -56,10 +56,13 @@
   position: absolute;
   background: #f00;
   left: 152%;
-  animation: spin 10s linear infinite reverse;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
-@keyframes spin {
-  100% {
-    transform: rotate(1turn);
-  }
+
+@keyframes circle {
+  from {-webkit-transform: rotateZ(0deg) translateX(225px)}
+  to {-webkit-transform: rotateZ(-360deg) translateX(225px)}
 }
