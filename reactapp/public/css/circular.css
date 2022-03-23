@@ -42,13 +42,14 @@
   top: 50%;
   width: 600px;
   height: 600px;
-  margin: -25vh;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   /* border: 1px solid #000; */
   border-radius: 50%;
 }
+
 .item {
   width: 150px;
   height: 150px;
@@ -63,7 +64,25 @@
 
 }
 
-@keyframes circle {
-  from {-webkit-transform: rotateZ(0deg) translateX(225px)}
-  to {-webkit-transform: rotateZ(-360deg) translateX(225px)}
+.item:hover{
+  animation: bounce 1s;
+  cursor:pointer;
+}
+
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
 }
